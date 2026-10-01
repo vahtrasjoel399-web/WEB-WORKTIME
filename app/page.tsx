@@ -118,8 +118,8 @@ export default function Home() {
           <h2><SplitWords text={"Räägime teie\ntöökorraldusest."}/></h2>
           <Reveal delay={0.1}><p className="muted">Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.</p>
             <div className="contact-links">
-              <a href="mailto:joel@worktime.ee"><Mail size={18}/><span><small>Joel</small>joel@worktime.ee</span></a>
-              <a href="mailto:stepan@worktime.ee"><Mail size={18}/><span><small>Stepan</small>stepan@worktime.ee</span></a>
+              <a href="mailto:joel@worktime.ee"><Mail size={18}/><span><small>Tehnilised küsimused · Joel</small>joel@worktime.ee</span></a>
+              <a href="mailto:stepan@worktime.ee"><Mail size={18}/><span><small>Müük ja muud küsimused · Stepan</small>stepan@worktime.ee</span></a>
             </div>
           </Reveal>
         </div>
@@ -130,7 +130,7 @@ export default function Home() {
     <footer>
       <div className="container footer-inner">
         <a className="brand" href="#top"><span>W</span>Tööaeg</a>
-        <div className="footer-links"><a href={APP_URL}>Ava rakendus</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="#contact">Kontakt</a></div>
+        <div className="footer-links"><a href={APP_URL}>Ava rakendus</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="mailto:stepan@worktime.ee">stepan@worktime.ee</a><a href="#contact">Kontakt</a></div>
         <p>© {new Date().getFullYear()} Tööaeg</p>
       </div>
     </footer>
