@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, Mail } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
@@ -61,10 +61,10 @@ export default function Home() {
     </section>
 
     <section className="contact section" id="contact">
-      <div className="contact-info"><Reveal><h2>Räägime teie<br/>töökorraldusest.</h2><p>Kas soovite Tööaja kohta rohkem teada? Jätke sõnum ja võtame teiega ühendust.</p></Reveal></div>
+      <div className="contact-info"><Reveal><h2>Räägime teie<br/>töökorraldusest.</h2><p>Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.</p><div className="contact-links"><a href="mailto:joel@worktime.ee"><Mail size={18}/><span><small>JOEL</small>joel@worktime.ee</span></a><a href="mailto:stepan@worktime.ee"><Mail size={18}/><span><small>STEPAN</small>stepan@worktime.ee</span></a></div></Reveal></div>
       <Reveal className="form-wrap" delay={.1}><ContactForm/></Reveal>
     </section>
 
-    <footer><a className="brand brand-light" href="#top"><span>W</span>Tööaeg</a><div className="footer-links"><a href="https://worktime-one.vercel.app">Ava rakendus</a><a href="#contact">Kontakt</a></div><p>© {new Date().getFullYear()} Tööaeg</p></footer>
+    <footer><a className="brand brand-light" href="#top"><span>W</span>Tööaeg</a><div className="footer-links"><a href="https://worktime-one.vercel.app">Ava rakendus</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="#contact">Kontakt</a></div><p>© {new Date().getFullYear()} Tööaeg</p></footer>
   </main>;
 }
