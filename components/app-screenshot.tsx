@@ -22,8 +22,8 @@ export function AppScreenshot({
       <Image
         src={screen === "employees" ? "/screenshots/employees-cropped.png" : `/screenshots/${screen}.${screen === "mobile-hours" ? "jpg" : "png"}`}
         alt={labels[screen]}
-        width={screen === "mobile-hours" ? 591 : 2816}
-        height={screen === "mobile-hours" ? 1280 : 1427}
+        width={screen === "mobile-hours" ? 591 : 2560}
+        height={screen === "mobile-hours" ? 1280 : 1600}
         priority={priority}
         sizes="(max-width: 760px) 110vw, (max-width: 1100px) 90vw, 65vw"
       />
