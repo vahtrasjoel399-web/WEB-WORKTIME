@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  animate,
   motion,
   useInView,
   useMotionTemplate,
@@ -15,7 +14,7 @@ import { ReactNode, useEffect, useRef, useState } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/** Thin gradient bar at the top showing scroll progress. */
+/** Thin bar at the top showing scroll progress. */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
@@ -54,20 +53,7 @@ export function SplitWords({ text, className = "", delay = 0 }: { text: string; 
   );
 }
 
-/** Number that counts up when scrolled into view. */
-export function Counter({ to, suffix = "", decimals = 0 }: { to: number; suffix?: string; decimals?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const controls = animate(0, to, { duration: 1.8, ease, onUpdate: setValue });
-    return () => controls.stop();
-  }, [inView, to]);
-  return <span ref={ref} className="tnum">{value.toFixed(decimals).replace(".", ",")}{suffix}</span>;
-}
-
-/** Card that tilts in 3D toward the cursor with a moving glare. */
+/** Card that tilts in 3D toward the cursor. */
 export function Tilt({ children, className = "", max = 8 }: { children: ReactNode; className?: string; max?: number }) {
   const reduced = useReducedMotion();
   const x = useMotionValue(0.5);
@@ -76,9 +62,6 @@ export function Tilt({ children, className = "", max = 8 }: { children: ReactNod
   const sy = useSpring(y, { stiffness: 160, damping: 18 });
   const rotateY = useTransform(sx, [0, 1], [-max, max]);
   const rotateX = useTransform(sy, [0, 1], [max, -max]);
-  const gx = useTransform(sx, (v) => `${v * 100}%`);
-  const gy = useTransform(sy, (v) => `${v * 100}%`);
-  const glare = useMotionTemplate`radial-gradient(circle at ${gx} ${gy}, rgba(255,255,255,.35), transparent 55%)`;
   return (
     <motion.div
       className={`tilt ${className}`}
@@ -91,7 +74,6 @@ export function Tilt({ children, className = "", max = 8 }: { children: ReactNod
       onPointerLeave={() => { x.set(0.5); y.set(0.5); }}
     >
       {children}
-      {!reduced && <motion.span className="tilt-glare" style={{ background: glare }} />}
     </motion.div>
   );
 }
@@ -164,7 +146,7 @@ export function ScrollLine({ children }: { children: ReactNode }) {
 export function Spotlight({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
   const x = useMotionValue(-999);
   const y = useMotionValue(-999);
-  const bg = useMotionTemplate`radial-gradient(520px circle at ${x}px ${y}px, rgba(120,98,255,.28), transparent 70%)`;
+  const bg = useMotionTemplate`radial-gradient(520px circle at ${x}px ${y}px, rgba(120,98,255,.16), transparent 70%)`;
   return (
     <section
       id={id}

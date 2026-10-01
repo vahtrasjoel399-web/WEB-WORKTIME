@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL } from "./site";
 
-const inter = Inter({ subsets: ["latin", "latin-ext"], variable: "--font-sans", display: "swap" });
+const satoshi = localFont({
+  src: [
+    { path: "./fonts/Satoshi-Light.woff2", weight: "300" },
+    { path: "./fonts/Satoshi-Regular.woff2", weight: "400" },
+    { path: "./fonts/Satoshi-Medium.woff2", weight: "500" },
+    { path: "./fonts/Satoshi-Bold.woff2", weight: "700" },
+  ],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="et" className={inter.variable}>
+    <html lang="et" className={satoshi.variable}>
       <body>{children}</body>
     </html>
   );

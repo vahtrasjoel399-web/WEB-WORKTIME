@@ -1,9 +1,9 @@
-import { ArrowRight, BarChart3, Clock3, FileSpreadsheet, MapPin, Mail, Smartphone, Users } from "lucide-react";
+import { ArrowRight, FileSpreadsheet, MapPin, Mail, Users } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
 import { AppScreenshot } from "@/components/app-screenshot";
-import { Counter, HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
+import { HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
 
 const APP_URL = "https://worktime-one.vercel.app";
 
@@ -28,9 +28,9 @@ export default function Home() {
     <Nav />
 
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-gradient" aria-hidden="true"><i/><i/><i/><i/></div>
+      <div className="hero-band" aria-hidden="true"/>
       <div className="hero-copy">
-        <Reveal><a className="pill" href="#how"><span className="pill-dot"/> Tööaja arvestus ettevõttele <ArrowRight size={14}/></a></Reveal>
+        <Reveal><p className="eyebrow">Tööaja arvestus ettevõttele</p></Reveal>
         <h1 id="hero-title"><SplitWords text={"Tööaeg.\nSelgelt arvel."} delay={0.1}/></h1>
         <Reveal delay={0.35}><p className="hero-lede">Halda töötajaid ja objekte, jälgi käimasolevat tööd ning koosta aruandeid ühest selgest rakendusest.</p></Reveal>
         <Reveal className="hero-actions" delay={0.45}>
@@ -40,17 +40,13 @@ export default function Home() {
       </div>
 
       <HeroStage>
-        <div className="browser">
-          <div className="browser-bar"><i/><i/><i/><span>worktime.ee</span></div>
+        <div className="hero-shot">
           <AppScreenshot screen="employees" priority/>
         </div>
-        <div className="float-card float-a"><span className="live-dot"/><div><small>Täna tööl</small><strong><Counter to={12}/> töötajat</strong></div></div>
-        <div className="float-card float-b"><Clock3 size={18}/><div><small>Selle nädala tunnid</small><strong><Counter to={384.5} decimals={1}/> h</strong></div></div>
-        <div className="float-card float-c"><BarChart3 size={18}/><div><small>Aruanne</small><strong>Eksporditud ✓</strong></div></div>
       </HeroStage>
     </section>
 
-    <div className="marquee" aria-hidden="true"><div className="marquee-track">{[...marquee, ...marquee].map((m, i) => <span key={i}>{m}<i/></span>)}</div></div>
+    <div className="marquee" aria-hidden="true"><div className="marquee-track">{[...marquee, ...marquee].map((m, i) => <span key={i}>{m}<i>/</i></span>)}</div></div>
 
     <section className="intro section" id="product">
       <div className="container intro-grid">
@@ -65,7 +61,7 @@ export default function Home() {
     <Spotlight className="how section" id="how">
       <div className="container">
         <div className="how-head">
-          <div><p className="kicker kicker-light">Kuidas töötab</p><h2><SplitWords text={"Seadistusest\naruandeni."}/></h2></div>
+          <h2><SplitWords text={"Seadistusest\naruandeni."}/></h2>
           <Reveal delay={0.1}><p>Neli selget sammu töötajate ja objektide haldamisest kuni tööaja aruandluseni.</p></Reveal>
         </div>
         <ScrollLine>
@@ -79,14 +75,14 @@ export default function Home() {
     <section className="showcase section" id="screenshots">
       <div className="container">
         <div className="showcase-head">
-          <div><p className="kicker">Vaated</p><h2><SplitWords text={"Kogu pilt ees.\nDetailid käeulatuses."}/></h2></div>
+          <h2><SplitWords text={"Kogu pilt ees.\nDetailid käeulatuses."}/></h2>
           <Reveal delay={0.1}><p>Päris rakenduse vaated näitavad tööaja arvestust sellisena, nagu seda iga päev kasutatakse.</p></Reveal>
         </div>
         <Reveal><Tilt className="shot shot-wide" max={4}><AppScreenshot screen="reports"/></Tilt></Reveal>
         <div className="showcase-split">
           <Reveal><Tilt className="shot"><AppScreenshot screen="sites"/></Tilt></Reveal>
           <Reveal delay={0.1} className="mobile-card">
-            <div className="mobile-copy"><Smartphone size={22}/><h3>Oma tunnid.<br/>Alati kaasas.</h3><p>Töötaja näeb kuu- ja nädalapõhist tööaega ning teenitud summat otse telefonist.</p></div>
+            <div className="mobile-copy"><h3>Oma tunnid.<br/>Alati kaasas.</h3><p>Töötaja näeb kuu- ja nädalapõhist tööaega ning teenitud summat otse telefonist.</p></div>
             <Parallax className="phone" offset={50}><AppScreenshot screen="mobile-hours" className="mobile-screen"/></Parallax>
           </Reveal>
         </div>
@@ -96,18 +92,17 @@ export default function Home() {
 
     <section className="capabilities section">
       <div className="container">
-        <p className="kicker">Võimalused</p>
         <h2><SplitWords text={"Loodud päris tööpäeva jaoks."}/></h2>
         <div className="cap-grid">
-          {capabilities.map(([Icon, title, copy], i) => <Reveal key={title} delay={i * 0.1}>
-            <Tilt className="cap-card" max={6}><span className="cap-icon"><Icon size={22}/></span><h3>{title}</h3><p>{copy}</p></Tilt>
+          {capabilities.map(([Icon, title, copy], i) => <Reveal key={title} delay={i * 0.1} className="cap-card">
+            <Icon size={24} strokeWidth={1.5} className="cap-icon"/><h3>{title}</h3><p>{copy}</p>
           </Reveal>)}
         </div>
       </div>
     </section>
 
     <section className="cta">
-      <div className="cta-gradient" aria-hidden="true"/>
+      <div className="cta-band" aria-hidden="true"/>
       <div className="container cta-inner">
         <h2><SplitWords text={"Tööaeg.\nÜhes kohas."}/></h2>
         <Reveal delay={0.2} className="hero-actions cta-actions">
@@ -120,7 +115,6 @@ export default function Home() {
     <section className="contact section" id="contact">
       <div className="container contact-grid">
         <div className="contact-info">
-          <p className="kicker">Kontakt</p>
           <h2><SplitWords text={"Räägime teie\ntöökorraldusest."}/></h2>
           <Reveal delay={0.1}><p className="muted">Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.</p>
             <div className="contact-links">
