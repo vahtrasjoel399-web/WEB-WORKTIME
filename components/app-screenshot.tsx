@@ -1,19 +1,13 @@
 import Image from "next/image";
 
-const labels = {
-  employees: "Tööaeg employee overview",
-  reports: "Tööaeg reporting dashboard",
-  sites: "Tööaeg worksite management",
-  map: "Tööaeg live work map",
-  "mobile-hours": "Tööaeg mobile employee hours view",
-};
-
 export function AppScreenshot({
   screen,
+  alt,
   priority = false,
   className = "",
 }: {
-  screen: keyof typeof labels;
+  screen: "employees" | "reports" | "sites" | "map" | "mobile-hours";
+  alt: string;
   priority?: boolean;
   className?: string;
 }) {
@@ -21,7 +15,7 @@ export function AppScreenshot({
     <div className={`real-screen ${className}`}>
       <Image
         src={screen === "employees" ? "/screenshots/employees-cropped.png" : `/screenshots/${screen}.${screen === "mobile-hours" ? "jpg" : "png"}`}
-        alt={labels[screen]}
+        alt={alt}
         width={screen === "mobile-hours" ? 591 : 2560}
         height={screen === "mobile-hours" ? 1280 : 1600}
         priority={priority}
