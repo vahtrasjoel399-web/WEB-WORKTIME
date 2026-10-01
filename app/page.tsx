@@ -1,8 +1,11 @@
-import { ArrowDown, ArrowRight, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowRight, BarChart3, Clock3, FileSpreadsheet, MapPin, Mail, Smartphone, Users } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
 import { AppScreenshot } from "@/components/app-screenshot";
+import { Counter, HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
+
+const APP_URL = "https://worktime-one.vercel.app";
 
 const steps = [
   ["01", "Lisa töötajad", "Koonda töötajate kontaktid, staatus ja tunnipõhine hind ühte vaatesse."],
@@ -11,60 +14,131 @@ const steps = [
   ["04", "Koosta aruanne", "Filtreeri perioodi, töötaja või objekti järgi ning ekspordi tulemused."],
 ];
 
+const capabilities = [
+  [Users, "Töötajate haldus", "Kontaktid, staatus, nädala töötunnid ja arvestus ühes kohas."],
+  [MapPin, "Objektid ja elav kaart", "Halda töökohti ning vaata vahetuse alustamise asukohta kaardil."],
+  [FileSpreadsheet, "Aruanded ja eksport", "Filtreeri tööaega ning ekspordi aruanded CSV- või Exceli failina."],
+] as const;
+
+const marquee = ["Tööaja arvestus", "Töötajad", "Objektid", "Elav kaart", "Aruanded", "CSV & Excel", "Mobiilivaade", "Tunnihinnad"];
+
 export default function Home() {
   return <main id="top">
+    <ScrollProgress />
     <Nav />
+
     <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-grid">
-        <div className="hero-copy">
-          <Reveal><p className="eyebrow"><span/> TÖÖAJA ARVESTUS ETTEVÕTTELE</p></Reveal>
-          <Reveal delay={.08}><h1 id="hero-title">Tööaeg.<br/><em>Selgelt arvel.</em></h1></Reveal>
-          <Reveal delay={.16}><p className="hero-lede">Halda töötajaid ja objekte, jälgi käimasolevat tööd ning koosta aruandeid ühest selgest rakendusest.</p></Reveal>
-          <Reveal className="hero-actions" delay={.24}><a className="button button-primary" href="https://worktime-one.vercel.app">Ava rakendus <ArrowUpRight size={18}/></a><a className="text-link" href="#contact">Võta ühendust <ArrowDown size={16}/></a></Reveal>
-        </div>
-        <Reveal className="hero-preview" delay={.18}><AppScreenshot screen="employees" priority/></Reveal>
+      <div className="hero-gradient" aria-hidden="true"><i/><i/><i/><i/></div>
+      <div className="hero-copy">
+        <Reveal><a className="pill" href="#how"><span className="pill-dot"/> Tööaja arvestus ettevõttele <ArrowRight size={14}/></a></Reveal>
+        <h1 id="hero-title"><SplitWords text={"Tööaeg.\nSelgelt arvel."} delay={0.1}/></h1>
+        <Reveal delay={0.35}><p className="hero-lede">Halda töötajaid ja objekte, jälgi käimasolevat tööd ning koosta aruandeid ühest selgest rakendusest.</p></Reveal>
+        <Reveal className="hero-actions" delay={0.45}>
+          <Magnetic><a className="btn btn-primary" href={APP_URL}>Ava rakendus <ArrowRight size={16} className="btn-arrow"/></a></Magnetic>
+          <Magnetic><a className="btn btn-ghost" href="#contact">Võta ühendust</a></Magnetic>
+        </Reveal>
       </div>
-      <div className="hero-foot"><span>Keri edasi</span><i/><span>Tööaeg ühes vaates</span></div>
+
+      <HeroStage>
+        <div className="browser">
+          <div className="browser-bar"><i/><i/><i/><span>worktime.ee</span></div>
+          <AppScreenshot screen="employees" priority/>
+        </div>
+        <div className="float-card float-a"><span className="live-dot"/><div><small>Täna tööl</small><strong><Counter to={12}/> töötajat</strong></div></div>
+        <div className="float-card float-b"><Clock3 size={18}/><div><small>Selle nädala tunnid</small><strong><Counter to={384.5} decimals={1}/> h</strong></div></div>
+        <div className="float-card float-c"><BarChart3 size={18}/><div><small>Aruanne</small><strong>Eksporditud ✓</strong></div></div>
+      </HeroStage>
     </section>
+
+    <div className="marquee" aria-hidden="true"><div className="marquee-track">{[...marquee, ...marquee].map((m, i) => <span key={i}>{m}<i/></span>)}</div></div>
 
     <section className="intro section" id="product">
-      <div className="intro-grid">
-        <Reveal><h2>Töö ülevaade.<br/>Ilma liigse mürata.</h2></Reveal>
-        <Reveal delay={.1} className="intro-copy"><p>Tööaeg annab tööandjale ühe koha töötajate, objektide, töötundide ja kulude haldamiseks.</p><p className="muted">Töötaja näeb, kus töö toimub. Juht näeb, kes töötab, kui kaua ja millisel objektil.</p></Reveal>
+      <div className="container intro-grid">
+        <h2><SplitWords text={"Töö ülevaade.\nIlma liigse mürata."}/></h2>
+        <Reveal delay={0.15} className="intro-copy">
+          <p>Tööaeg annab tööandjale ühe koha töötajate, objektide, töötundide ja kulude haldamiseks.</p>
+          <p className="muted">Töötaja näeb, kus töö toimub. Juht näeb, kes töötab, kui kaua ja millisel objektil.</p>
+        </Reveal>
       </div>
     </section>
 
-    <section className="how section" id="how">
-      <div className="how-head"><Reveal><h2>Seadistusest<br/>aruandeni.</h2></Reveal><Reveal><p>Neli selget sammu töötajate ja objektide haldamisest kuni tööaja aruandluseni.</p></Reveal></div>
-      <div className="steps">{steps.map(([num,title,copy], i) => <Reveal className="step" delay={i*.05} key={num}><span>{num}</span><h3>{title}</h3><p>{copy}</p><ArrowUpRight size={19}/></Reveal>)}</div>
-    </section>
+    <Spotlight className="how section" id="how">
+      <div className="container">
+        <div className="how-head">
+          <div><p className="kicker kicker-light">Kuidas töötab</p><h2><SplitWords text={"Seadistusest\naruandeni."}/></h2></div>
+          <Reveal delay={0.1}><p>Neli selget sammu töötajate ja objektide haldamisest kuni tööaja aruandluseni.</p></Reveal>
+        </div>
+        <ScrollLine>
+          {steps.map(([num, title, copy], i) => <Reveal className="step" delay={i * 0.08} key={num}>
+            <span className="step-num">{num}</span><h3>{title}</h3><p>{copy}</p>
+          </Reveal>)}
+        </ScrollLine>
+      </div>
+    </Spotlight>
 
     <section className="showcase section" id="screenshots">
-      <div className="showcase-head"><Reveal><h2>Kogu pilt ees.<br/><em>Detailid käeulatuses.</em></h2></Reveal><Reveal><p>Päris rakenduse vaated näitavad tööaja arvestust sellisena, nagu seda iga päev kasutatakse.</p></Reveal></div>
-      <Reveal className="showcase-main"><AppScreenshot screen="reports"/></Reveal>
-      <div className="showcase-split">
-        <Reveal className="detail-panel"><AppScreenshot screen="sites"/></Reveal>
-        <Reveal className="mobile-composition" delay={.1}><div className="mobile-copy"><h3>Oma tunnid.<br/>Alati kaasas.</h3><p>Töötaja näeb kuu- ja nädalapõhist tööaega ning teenitud summat otse telefonist.</p></div><div className="phone"><AppScreenshot screen="mobile-hours" className="mobile-screen"/></div></Reveal>
+      <div className="container">
+        <div className="showcase-head">
+          <div><p className="kicker">Vaated</p><h2><SplitWords text={"Kogu pilt ees.\nDetailid käeulatuses."}/></h2></div>
+          <Reveal delay={0.1}><p>Päris rakenduse vaated näitavad tööaja arvestust sellisena, nagu seda iga päev kasutatakse.</p></Reveal>
+        </div>
+        <Reveal><Tilt className="shot shot-wide" max={4}><AppScreenshot screen="reports"/></Tilt></Reveal>
+        <div className="showcase-split">
+          <Reveal><Tilt className="shot"><AppScreenshot screen="sites"/></Tilt></Reveal>
+          <Reveal delay={0.1} className="mobile-card">
+            <div className="mobile-copy"><Smartphone size={22}/><h3>Oma tunnid.<br/>Alati kaasas.</h3><p>Töötaja näeb kuu- ja nädalapõhist tööaega ning teenitud summat otse telefonist.</p></div>
+            <Parallax className="phone" offset={50}><AppScreenshot screen="mobile-hours" className="mobile-screen"/></Parallax>
+          </Reveal>
+        </div>
+        <Reveal><Tilt className="shot shot-wide shot-dark" max={4}><AppScreenshot screen="map"/></Tilt></Reveal>
       </div>
-      <Reveal className="map-wide"><AppScreenshot screen="map"/></Reveal>
     </section>
 
     <section className="capabilities section">
-      <div className="cap-title"><Reveal><h2>Loodud päris<br/>tööpäeva jaoks.</h2></Reveal></div>
-      <div className="cap-list">
-        {[["A", "Töötajate haldus", "Kontaktid, staatus, nädala töötunnid ja arvestus ühes kohas."], ["B", "Objektid ja elav kaart", "Halda töökohti ning vaata vahetuse alustamise asukohta kaardil."], ["C", "Aruanded ja eksport", "Filtreeri tööaega ning ekspordi aruanded CSV- või Exceli failina."]].map(([letter,title,copy], i)=><Reveal className="cap-row" delay={i*.05} key={letter}><span>{letter}</span><h3>{title}</h3><p>{copy}</p><ArrowUpRight/></Reveal>)}
+      <div className="container">
+        <p className="kicker">Võimalused</p>
+        <h2><SplitWords text={"Loodud päris tööpäeva jaoks."}/></h2>
+        <div className="cap-grid">
+          {capabilities.map(([Icon, title, copy], i) => <Reveal key={title} delay={i * 0.1}>
+            <Tilt className="cap-card" max={6}><span className="cap-icon"><Icon size={22}/></span><h3>{title}</h3><p>{copy}</p></Tilt>
+          </Reveal>)}
+        </div>
       </div>
     </section>
 
-    <section className="cta section">
-      <Reveal><span className="cta-mark">W</span><h2>Tööaeg.<br/><em>Ühes kohas.</em></h2><div><a className="button button-lime" href="https://worktime-one.vercel.app">Ava rakendus <ArrowUpRight size={18}/></a><a className="button button-outline" href="#contact">Võta ühendust</a></div></Reveal>
+    <section className="cta">
+      <div className="cta-gradient" aria-hidden="true"/>
+      <div className="container cta-inner">
+        <h2><SplitWords text={"Tööaeg.\nÜhes kohas."}/></h2>
+        <Reveal delay={0.2} className="hero-actions cta-actions">
+          <Magnetic><a className="btn btn-white" href={APP_URL}>Ava rakendus <ArrowRight size={16} className="btn-arrow"/></a></Magnetic>
+          <Magnetic><a className="btn btn-outline-light" href="#contact">Võta ühendust</a></Magnetic>
+        </Reveal>
+      </div>
     </section>
 
     <section className="contact section" id="contact">
-      <div className="contact-info"><Reveal><h2>Räägime teie<br/>töökorraldusest.</h2><p>Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.</p><div className="contact-links"><a href="mailto:joel@worktime.ee"><Mail size={18}/><span><small>JOEL</small>joel@worktime.ee</span></a><a href="mailto:stepan@worktime.ee"><Mail size={18}/><span><small>STEPAN</small>stepan@worktime.ee</span></a></div></Reveal></div>
-      <Reveal className="form-wrap" delay={.1}><ContactForm/></Reveal>
+      <div className="container contact-grid">
+        <div className="contact-info">
+          <p className="kicker">Kontakt</p>
+          <h2><SplitWords text={"Räägime teie\ntöökorraldusest."}/></h2>
+          <Reveal delay={0.1}><p className="muted">Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.</p>
+            <div className="contact-links">
+              <a href="mailto:joel@worktime.ee"><Mail size={18}/><span><small>Joel</small>joel@worktime.ee</span></a>
+              <a href="mailto:stepan@worktime.ee"><Mail size={18}/><span><small>Stepan</small>stepan@worktime.ee</span></a>
+            </div>
+          </Reveal>
+        </div>
+        <Reveal className="form-card" delay={0.15}><ContactForm/></Reveal>
+      </div>
     </section>
 
-    <footer><a className="brand brand-light" href="#top"><span>W</span>Tööaeg</a><div className="footer-links"><a href="https://worktime-one.vercel.app">Ava rakendus</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="#contact">Kontakt</a></div><p>© {new Date().getFullYear()} Tööaeg</p></footer>
+    <footer>
+      <div className="container footer-inner">
+        <a className="brand" href="#top"><span>W</span>Tööaeg</a>
+        <div className="footer-links"><a href={APP_URL}>Ava rakendus</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="#contact">Kontakt</a></div>
+        <p>© {new Date().getFullYear()} Tööaeg</p>
+      </div>
+    </footer>
   </main>;
 }
