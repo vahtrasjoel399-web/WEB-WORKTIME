@@ -1,15 +1,20 @@
 import { ArrowRight, FileSpreadsheet, MapPin, Mail, Users } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
+import { ChatWidget } from "@/components/chat-widget";
 import { Nav } from "@/components/nav";
 import { Reveal } from "@/components/reveal";
 import { AppScreenshot } from "@/components/app-screenshot";
 import { HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
 import { dictionaries, isLocale } from "../i18n";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 const APP_URL = "https://worktime-one.vercel.app";
 
 const capabilityIcons = [Users, MapPin, FileSpreadsheet];
+
+/** Close-up crops of the app screen each "how it works" step describes. */
+const stepImages = ["/steps/1-employees.png", "/steps/2-sites.png", "/steps/3-map.png", "/steps/4-reports.png"];
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -59,8 +64,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Reveal delay={0.1}><p>{t.how.lede}</p></Reveal>
         </div>
         <ScrollLine>
-          {t.how.steps.map(([title, copy], i) => <Reveal className="step" delay={i * 0.08} key={i}>
-            <span className="step-num">{String(i + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p>
+          {t.how.steps.map(([title, copy, alt], i) => <Reveal className="step" delay={i * 0.08} key={i}>
+            <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
+            <div className="step-text"><h3>{title}</h3><p>{copy}</p></div>
+            <div className="step-shot">
+              <Image src={stepImages[i]} alt={alt} width={1200} height={750} sizes="(max-width: 760px) 90vw, (max-width: 1100px) 45vw, 520px"/>
+            </div>
           </Reveal>)}
         </ScrollLine>
       </div>
@@ -117,7 +126,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             </div>
           </Reveal>
         </div>
-        <Reveal className="form-card" delay={0.15}><ContactForm t={t.form}/></Reveal>
+        <Reveal className="form-card" delay={0.15}><ContactForm t={t.form} lang={lang}/></Reveal>
       </div>
     </section>
 
@@ -128,5 +137,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <p>© {new Date().getFullYear()} Tööaeg</p>
       </div>
     </footer>
+
+    <ChatWidget t={t.chat} lang={lang}/>
   </main>;
 }
