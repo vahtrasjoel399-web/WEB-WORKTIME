@@ -12,7 +12,6 @@
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "@upstash/redis": "^1.40.0",
     "ai": "^7.0.156",
     "autoprefixer": "^10.4.20",
     "framer-motion": "^11.15.0",
@@ -21,6 +20,7 @@
     "postcss": "^8.5.23",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "redis": "^6.3.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },

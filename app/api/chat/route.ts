@@ -9,11 +9,11 @@ const MAX_TEXT = 1000;
 /*
  * Spending limits. When any of them is hit the assistant stops and the chat is
  * handed to the team, who can still reply from /admin.
- * Worst case with defaults: 300 replies/day ≈ $0.15/day, well under the free $5/month.
+ * Worst case with defaults: 150 replies/day ≈ $0.15/day (GPT-4.1 mini), under the free $5/month.
  */
 const MAX_AI_REPLIES_PER_CHAT = 25;
 const MAX_AI_REPLIES_PER_IP_DAY = 40;
-const MAX_AI_REPLIES_PER_DAY = Number(process.env.AI_DAILY_LIMIT) || 300;
+const MAX_AI_REPLIES_PER_DAY = Number(process.env.AI_DAILY_LIMIT) || 150;
 const MAX_NEW_CHATS_PER_IP_HOUR = 5;
 const DAY = 86400;
 const ID_RE = /^[0-9a-f-]{36}$/;
