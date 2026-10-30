@@ -44,7 +44,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       alternateLocale: locales.filter((l) => l !== lang).map((l) => dictionaries[l].ogLocale),
       siteName: "Worktime",
     },
-    icons: { icon: "/icon.png", apple: "/apple-icon.png" },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "48x48" },
+        { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/apple-icon.png",
+    },
   };
 }
 
