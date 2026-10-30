@@ -80,7 +80,7 @@ export function AdminInbox({ initialChat }: { initialChat: string | null }) {
 
   const unread = chats.reduce((n, c) => n + (c.id === activeId ? 0 : c.unread), 0);
   useEffect(() => {
-    document.title = unread ? `(${unread}) Чаты Tööaeg` : "Чаты Tööaeg";
+    document.title = unread ? `(${unread}) Чаты Worktime` : "Чаты Worktime";
   }, [unread]);
 
   useEffect(() => {

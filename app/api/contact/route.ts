@@ -21,7 +21,7 @@ export async function POST(request: Request) {
   if (!name || !EMAIL_RE.test(email) || !message) return NextResponse.json({ ok: false }, { status: 400 });
 
   const ok = await sendMail({
-    subject: `Tööaeg: uus sõnum — ${name}`,
+    subject: `Worktime: uus sõnum — ${name}`,
     text: `Nimi: ${name}\nE-post: ${email}\nKeel: ${lang || "-"}\n\n${message}`,
     replyTo: email,
   });

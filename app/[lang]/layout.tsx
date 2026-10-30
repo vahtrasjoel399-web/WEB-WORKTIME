@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       url: localePath(lang),
       locale: ogLocale,
       alternateLocale: locales.filter((l) => l !== lang).map((l) => dictionaries[l].ogLocale),
-      siteName: "Tööaeg (Worktime)",
+      siteName: "Worktime",
     },
     icons: { icon: "/icon.png", apple: "/apple-icon.png" },
   };

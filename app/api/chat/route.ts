@@ -34,7 +34,7 @@ async function handToTeam(meta: ChatMeta, event: "handoff" | "requested"): Promi
   await addMessage(meta.id, { id: newId(), role: "system", text: event, at: now });
   const why = event === "requested" ? "Klient soovib rääkida inimesega" : "AI ei osanud vastata";
   after(() => sendMail({
-    subject: `Tööaeg: klient ootab vastust (${why.toLowerCase()})`,
+    subject: `Worktime: klient ootab vastust (${why.toLowerCase()})`,
     text: `${why}.\n\nViimane sõnum: ${meta.preview || "—"}\n\nAva vestlus: ${SITE_URL}/admin?chat=${meta.id}`,
   }));
   return { ...meta, mode: "human", needsTeam: true, updatedAt: now };

@@ -1,7 +1,7 @@
 /** Team inboxes. Override with CONTACT_TO (comma-separated). */
 export const TEAM_INBOXES = (process.env.CONTACT_TO || "joel@worktime.ee,stepan@worktime.ee").split(",").map((s) => s.trim()).filter(Boolean);
 /** Must be an address on a domain verified in Resend. */
-const FROM = process.env.CONTACT_FROM || "Tööaeg <noreply@worktime.ee>";
+const FROM = process.env.CONTACT_FROM || "Worktime <noreply@worktime.ee>";
 
 /** Sends a plain-text email through Resend. Returns false (and logs) on any failure. */
 export async function sendMail({ subject, text, replyTo }: { subject: string; text: string; replyTo?: string }): Promise<boolean> {

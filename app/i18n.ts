@@ -11,13 +11,13 @@ export const localeNames: Record<Locale, string> = { et: "Eesti", ru: "Русс�
 const et = {
   ogLocale: "et_EE",
   meta: {
-    title: "Tööaeg (Worktime) — tööaja arvestus ühes vaates",
+    title: "Worktime — tööaja arvestus ühes vaates",
     description: "Worktime: tööaja, töötajate, objektide ja aruannete haldus ühes selges rakenduses.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaja arvestus", "tööaeg", "töötajate haldus", "tööaja tabel", "objektid", "aruanded"],
   },
   nav: {
     links: ["Toode", "Kuidas töötab", "Vaated", "Kontakt"],
-    home: "Tööaeg avaleht",
+    home: "Worktime'i avaleht",
     toggle: "Ava menüü",
     language: "Keel",
   },
@@ -25,13 +25,13 @@ const et = {
   getInTouch: "Võta ühendust",
   hero: {
     eyebrow: "Tööaja arvestus ettevõttele",
-    title: "Tööaeg.\nSelgelt arvel.",
+    title: "Worktime.\nSelgelt arvel.",
     lede: "Halda töötajaid ja objekte, jälgi käimasolevat tööd ning koosta aruandeid ühest selgest rakendusest.",
   },
   marquee: ["Tööaja arvestus", "Töötajad", "Objektid", "Elav kaart", "Aruanded", "CSV & Excel", "Mobiilivaade", "Tunnihinnad"],
   intro: {
     title: "Töö ülevaade.\nIlma liigse mürata.",
-    lead: "Tööaeg annab tööandjale ühe koha töötajate, objektide, töötundide ja kulude haldamiseks.",
+    lead: "Worktime annab tööandjale ühe koha töötajate, objektide, töötundide ja kulude haldamiseks.",
     muted: "Töötaja näeb, kus töö toimub. Juht näeb, kes töötab, kui kaua ja millisel objektil.",
   },
   how: {
@@ -58,7 +58,7 @@ const et = {
       ["Aruanded ja eksport", "Filtreeri tööaega ning ekspordi aruanded CSV- või Exceli failina."],
     ],
   },
-  cta: { title: "Tööaeg.\nÜhes kohas." },
+  cta: { title: "Worktime.\nÜhes kohas." },
   contact: {
     title: "Räägime teie\ntöökorraldusest.",
     lede: "Kas soovite Tööaja kohta rohkem teada? Kirjutage otse või jätke sõnum.",
@@ -92,16 +92,16 @@ const et = {
     talkToTeam: "Kirjuta meeskonnale",
     requested: "Ühendame teid meeskonnaga. Kirjutage oma küsimus ja e-post või telefon — vastame siinsamas.",
     handedOff: "Küsimus on edastatud meeskonnale. Vastame siinsamas.",
-    teamLabel: "Tööaeg meeskond",
+    teamLabel: "Worktime'i meeskond",
     error: "Sõnumit ei õnnestunud saata. Proovige uuesti.",
     rateLimited: "Liiga palju sõnumeid. Proovige mõne minuti pärast uuesti.",
   },
   screenshots: {
-    employees: "Tööaeg: töötajate ülevaade",
-    reports: "Tööaeg: aruannete vaade",
-    sites: "Tööaeg: objektide haldus",
-    map: "Tööaeg: elav töökaart",
-    "mobile-hours": "Tööaeg: töötaja tunnid mobiilis",
+    employees: "Worktime: töötajate ülevaade",
+    reports: "Worktime: aruannete vaade",
+    sites: "Worktime: objektide haldus",
+    map: "Worktime: elav töökaart",
+    "mobile-hours": "Worktime: töötaja tunnid mobiilis",
   },
 };
 
@@ -110,13 +110,13 @@ export type Dictionary = typeof et;
 const ru: Dictionary = {
   ogLocale: "ru_RU",
   meta: {
-    title: "Tööaeg (Worktime) — учёт рабочего времени в одном окне",
+    title: "Worktime — учёт рабочего времени в одном окне",
     description: "Worktime: учёт рабочего времени, сотрудников, объектов и отчётов в одном понятном приложении.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "учёт рабочего времени", "табель рабочего времени", "управление сотрудниками", "объекты", "отчёты"],
   },
   nav: {
     links: ["Продукт", "Как это работает", "Интерфейс", "Контакты"],
-    home: "Tööaeg — главная",
+    home: "Worktime — главная",
     toggle: "Открыть меню",
     language: "Язык",
   },
@@ -124,13 +124,13 @@ const ru: Dictionary = {
   getInTouch: "Связаться с нами",
   hero: {
     eyebrow: "Учёт рабочего времени для бизнеса",
-    title: "Tööaeg.\nКаждый час на учёте.",
+    title: "Worktime.\nКаждый час на учёте.",
     lede: "Управляйте сотрудниками и объектами, следите за текущей работой и формируйте отчёты в одном понятном приложении.",
   },
   marquee: ["Учёт времени", "Сотрудники", "Объекты", "Живая карта", "Отчёты", "CSV и Excel", "Мобильная версия", "Почасовые ставки"],
   intro: {
     title: "Обзор работы.\nБез лишнего шума.",
-    lead: "Tööaeg даёт работодателю одно место для управления сотрудниками, объектами, рабочими часами и расходами.",
+    lead: "Worktime даёт работодателю одно место для управления сотрудниками, объектами, рабочими часами и расходами.",
     muted: "Сотрудник видит, где идёт работа. Руководитель видит, кто работает, сколько и на каком объекте.",
   },
   how: {
@@ -157,10 +157,10 @@ const ru: Dictionary = {
       ["Отчёты и экспорт", "Фильтруйте рабочее время и экспортируйте отчёты в CSV или Excel."],
     ],
   },
-  cta: { title: "Tööaeg.\nВсё в одном месте." },
+  cta: { title: "Worktime.\nВсё в одном месте." },
   contact: {
     title: "Поговорим о вашей\nорганизации работы.",
-    lede: "Хотите узнать о Tööaeg больше? Напишите напрямую или оставьте сообщение.",
+    lede: "Хотите узнать о Worktime больше? Напишите напрямую или оставьте сообщение.",
     tech: "Технические вопросы · Joel",
     sales: "Продажи и другие вопросы · Stepan",
   },
@@ -182,7 +182,7 @@ const ru: Dictionary = {
     open: "Открыть чат",
     close: "Закрыть чат",
     title: "ИИ ассистент",
-    greeting: "Здравствуйте! Я Peeter, ИИ-ассистент Tööaeg. Спрашивайте про учёт рабочего времени, сотрудников, объекты или отчёты. Если нужно, к чату подключится наша команда.",
+    greeting: "Здравствуйте! Я Peeter, ИИ-ассистент Worktime. Спрашивайте про учёт рабочего времени, сотрудников, объекты или отчёты. Если нужно, к чату подключится наша команда.",
     placeholder: "Напишите сообщение…",
     send: "Отправить",
     typing: "Peeter думает…",
@@ -191,29 +191,29 @@ const ru: Dictionary = {
     talkToTeam: "Написать команде",
     requested: "Соединяем с командой. Напишите вопрос и email или телефон — ответим прямо здесь.",
     handedOff: "Вопрос передан команде. Ответим прямо здесь.",
-    teamLabel: "Команда Tööaeg",
+    teamLabel: "Команда Worktime",
     error: "Не удалось отправить сообщение. Попробуйте ещё раз.",
     rateLimited: "Слишком много сообщений. Попробуйте через несколько минут.",
   },
   screenshots: {
-    employees: "Tööaeg: обзор сотрудников",
-    reports: "Tööaeg: отчёты",
-    sites: "Tööaeg: управление объектами",
-    map: "Tööaeg: живая карта работ",
-    "mobile-hours": "Tööaeg: часы сотрудника в телефоне",
+    employees: "Worktime: обзор сотрудников",
+    reports: "Worktime: отчёты",
+    sites: "Worktime: управление объектами",
+    map: "Worktime: живая карта работ",
+    "mobile-hours": "Worktime: часы сотрудника в телефоне",
   },
 };
 
 const en: Dictionary = {
   ogLocale: "en_GB",
   meta: {
-    title: "Tööaeg (Worktime) — work time tracking in one view",
+    title: "Worktime — work time tracking in one view",
     description: "Worktime: track work time, employees, worksites and reports in one clear app.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "time tracking", "working hours", "employee management", "timesheet", "worksites", "reports"],
   },
   nav: {
     links: ["Product", "How it works", "Screens", "Contact"],
-    home: "Tööaeg home",
+    home: "Worktime home",
     toggle: "Toggle navigation",
     language: "Language",
   },
@@ -221,13 +221,13 @@ const en: Dictionary = {
   getInTouch: "Get in touch",
   hero: {
     eyebrow: "Time tracking for businesses",
-    title: "Tööaeg.\nEvery hour accounted for.",
+    title: "Worktime.\nEvery hour accounted for.",
     lede: "Manage employees and worksites, follow ongoing work and build reports — all from one clear app.",
   },
   marquee: ["Time tracking", "Employees", "Worksites", "Live map", "Reports", "CSV & Excel", "Mobile view", "Hourly rates"],
   intro: {
     title: "Your work at a glance.\nWithout the noise.",
-    lead: "Tööaeg gives employers one place to manage employees, worksites, working hours and costs.",
+    lead: "Worktime gives employers one place to manage employees, worksites, working hours and costs.",
     muted: "Employees see where the work happens. Managers see who is working, for how long and at which site.",
   },
   how: {
@@ -254,10 +254,10 @@ const en: Dictionary = {
       ["Reports and export", "Filter working time and export reports as CSV or Excel files."],
     ],
   },
-  cta: { title: "Tööaeg.\nAll in one place." },
+  cta: { title: "Worktime.\nAll in one place." },
   contact: {
     title: "Let's talk about\nhow your team works.",
-    lede: "Want to know more about Tööaeg? Write to us directly or leave a message.",
+    lede: "Want to know more about Worktime? Write to us directly or leave a message.",
     tech: "Technical questions · Joel",
     sales: "Sales and other questions · Stepan",
   },
@@ -279,7 +279,7 @@ const en: Dictionary = {
     open: "Open chat",
     close: "Close chat",
     title: "AI assistant",
-    greeting: "Hi! I'm Peeter, the Tööaeg AI assistant. Ask me about time tracking, employees, worksites or reports. If needed, someone from our team will join the chat.",
+    greeting: "Hi! I'm Peeter, the Worktime AI assistant. Ask me about time tracking, employees, worksites or reports. If needed, someone from our team will join the chat.",
     placeholder: "Write a message…",
     send: "Send",
     typing: "Peeter is thinking…",
@@ -288,16 +288,16 @@ const en: Dictionary = {
     talkToTeam: "Talk to the team",
     requested: "Connecting you with the team. Write your question and email or phone — we'll reply right here.",
     handedOff: "Your question has been passed to the team. We'll reply right here.",
-    teamLabel: "Tööaeg team",
+    teamLabel: "Worktime team",
     error: "Your message couldn't be sent. Please try again.",
     rateLimited: "Too many messages. Please try again in a few minutes.",
   },
   screenshots: {
-    employees: "Tööaeg: employee overview",
-    reports: "Tööaeg: reporting dashboard",
-    sites: "Tööaeg: worksite management",
-    map: "Tööaeg: live work map",
-    "mobile-hours": "Tööaeg: employee hours on mobile",
+    employees: "Worktime: employee overview",
+    reports: "Worktime: reporting dashboard",
+    sites: "Worktime: worksite management",
+    map: "Worktime: live work map",
+    "mobile-hours": "Worktime: employee hours on mobile",
   },
 };
 

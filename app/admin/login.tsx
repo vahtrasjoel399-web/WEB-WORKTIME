@@ -21,7 +21,7 @@ export function AdminLogin() {
     <main className="admin-center">
       <form className="admin-card" onSubmit={submit}>
         <span className="admin-logo">W</span>
-        <h1>Чаты Tööaeg</h1>
+        <h1>Чаты Worktime</h1>
         <label>Пароль<input name="password" type="password" required autoFocus autoComplete="current-password" /></label>
         {error && <p className="admin-error" role="alert">{error}</p>}
         <button className="admin-btn admin-btn-primary" disabled={busy}>{busy ? "Входим…" : "Войти"}</button>

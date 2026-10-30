@@ -14,7 +14,7 @@ const satoshi = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Tööaeg · Чаты",
+  title: "Worktime · Чаты",
   robots: { index: false, follow: false },
   icons: { icon: "/icon.png" },
 };
