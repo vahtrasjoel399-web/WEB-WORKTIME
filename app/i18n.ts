@@ -11,9 +11,9 @@ export const localeNames: Record<Locale, string> = { et: "Eesti", ru: "Русс�
 const et = {
   ogLocale: "et_EE",
   meta: {
-    title: "Tööaeg — tööaja arvestus ühes vaates",
-    description: "Tööaja, töötajate, objektide ja aruannete haldus ühes selges rakenduses.",
-    keywords: ["tööaja arvestus", "tööaeg", "töötajate haldus", "tööaja tabel", "objektid", "aruanded"],
+    title: "Tööaeg (Worktime) — tööaja arvestus ühes vaates",
+    description: "Worktime: tööaja, töötajate, objektide ja aruannete haldus ühes selges rakenduses.",
+    keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaja arvestus", "tööaeg", "töötajate haldus", "tööaja tabel", "objektid", "aruanded"],
   },
   nav: {
     links: ["Toode", "Kuidas töötab", "Vaated", "Kontakt"],
@@ -110,9 +110,9 @@ export type Dictionary = typeof et;
 const ru: Dictionary = {
   ogLocale: "ru_RU",
   meta: {
-    title: "Tööaeg — учёт рабочего времени в одном окне",
-    description: "Учёт рабочего времени, сотрудников, объектов и отчётов в одном понятном приложении.",
-    keywords: ["учёт рабочего времени", "табель рабочего времени", "управление сотрудниками", "объекты", "отчёты"],
+    title: "Tööaeg (Worktime) — учёт рабочего времени в одном окне",
+    description: "Worktime: учёт рабочего времени, сотрудников, объектов и отчётов в одном понятном приложении.",
+    keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "учёт рабочего времени", "табель рабочего времени", "управление сотрудниками", "объекты", "отчёты"],
   },
   nav: {
     links: ["Продукт", "Как это работает", "Интерфейс", "Контакты"],
@@ -207,9 +207,9 @@ const ru: Dictionary = {
 const en: Dictionary = {
   ogLocale: "en_GB",
   meta: {
-    title: "Tööaeg — time tracking in one view",
-    description: "Manage working hours, employees, worksites and reports in one clear app.",
-    keywords: ["time tracking", "working hours", "employee management", "timesheet", "worksites", "reports"],
+    title: "Tööaeg (Worktime) — work time tracking in one view",
+    description: "Worktime: track work time, employees, worksites and reports in one clear app.",
+    keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "time tracking", "working hours", "employee management", "timesheet", "worksites", "reports"],
   },
   nav: {
     links: ["Product", "How it works", "Screens", "Contact"],

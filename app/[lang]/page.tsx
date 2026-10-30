@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal";
 import { AppScreenshot } from "@/components/app-screenshot";
 import { HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
 import { dictionaries, isLocale } from "../i18n";
+import { SITE_URL } from "../site";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 
@@ -22,7 +23,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const t = dictionaries[lang];
   const shot = (screen: keyof typeof t.screenshots) => ({ screen, alt: t.screenshots[screen] });
 
+  // Tells search engines that "Tööaeg" and "Worktime" are the same brand.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: "Tööaeg", alternateName: ["Worktime", "Work Time", "worktime.ee"], inLanguage: lang },
+      { "@type": "Organization", "@id": `${SITE_URL}/#org`, url: `${SITE_URL}/`, name: "Tööaeg", alternateName: ["Worktime", "Work Time"], logo: `${SITE_URL}/icon.png`, email: "joel@worktime.ee" },
+      { "@type": "SoftwareApplication", name: "Tööaeg (Worktime)", applicationCategory: "BusinessApplication", operatingSystem: "Web", url: APP_URL, description: t.meta.description, publisher: { "@id": `${SITE_URL}/#org` } },
+    ],
+  };
+
   return <main id="top">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}/>
     <ScrollProgress />
     <Nav lang={lang} t={t}/>
 
@@ -134,7 +146,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       <div className="container footer-inner">
         <a className="brand" href="#top"><span>W</span>Tööaeg</a>
         <div className="footer-links"><a href={APP_URL}>{t.openApp}</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="mailto:stepan@worktime.ee">stepan@worktime.ee</a><a href="#contact">{t.nav.links[3]}</a></div>
-        <p>© {new Date().getFullYear()} Tööaeg</p>
+        <p>© {new Date().getFullYear()} Tööaeg · Worktime</p>
       </div>
     </footer>
 
