@@ -7,7 +7,7 @@
   --purple: #533afd; --purple-hover: #4434d4; --purple-light: #b9b9f9; --purple-soft: #d6d9fc;
   --navy: #061b31; --label: #273951; --body: #64748d; --border: #e5edf5;
   --brand-dark: #1c1e54; --ruby: #ea2261; --magenta: #f96bee; --success: #15be53;
-  --bg: #ffffff; --bg-soft: #f6f9fc;
+  --logo-blue: #035dea; --bg: #ffffff; --bg-soft: #f6f9fc;
   --shadow-1: rgba(23,23,23,.06) 0 3px 6px;
   --shadow-2: rgba(23,23,23,.08) 0 15px 35px;
   --shadow-3: rgba(50,50,93,.25) 0 30px 45px -30px, rgba(0,0,0,.1) 0 18px 36px -18px;
@@ -39,7 +39,8 @@ h1, h2, h3 { font-weight: 500; margin: 0; color: inherit; }
 .site-header { position: fixed; z-index: 50; inset: 0 0 auto; height: 72px; padding: 0 clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; transition: background .3s, height .3s, box-shadow .3s; }
 .site-header.is-scrolled { height: 62px; background: rgba(255,255,255,.78); backdrop-filter: saturate(180%) blur(14px); box-shadow: rgba(0,55,112,.08) 0 1px 0; }
 .brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; letter-spacing: -.02em; }
-.brand span { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; background: var(--navy); color: #fff; font-size: 14px; font-weight: 700; }
+.brand-logo { display: block; height: 22px; width: auto; color: var(--logo-blue); transition: color .3s; }
+.site-header:not(.is-scrolled) .brand-logo { color: #fff; }
 .desktop-nav { display: flex; gap: 6px; font-size: 15px; font-weight: 500; }
 .desktop-nav a { padding: 8px 12px; border-radius: 6px; transition: background .2s, color .2s; }
 .desktop-nav a:hover { background: rgba(83,58,253,.07); color: var(--purple); }

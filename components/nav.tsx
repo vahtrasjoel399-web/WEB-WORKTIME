@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Logo } from "./logo";
 import { localeNames, localePath, locales, type Dictionary, type Locale } from "@/app/i18n";
 
 const anchors = ["#product", "#how", "#screenshots", "#contact"];
@@ -20,7 +21,7 @@ export function Nav({ lang, t }: { lang: Locale; t: Dictionary }) {
   const links = t.nav.links.map((label, i) => [label, anchors[i]]);
   useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 24); onScroll(); window.addEventListener("scroll", onScroll, { passive: true }); return () => window.removeEventListener("scroll", onScroll); }, []);
   return <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-    <a className="brand" href="#top" aria-label={t.nav.home}><span>W</span>Worktime</a>
+    <a className="brand" href="#top" aria-label={t.nav.home}><Logo className="brand-logo"/></a>
     <nav className="desktop-nav" aria-label="Main navigation">{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
     <div className="nav-end">
       <LangSwitch lang={lang} label={t.nav.language}/>

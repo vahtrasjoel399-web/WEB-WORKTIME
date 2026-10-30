@@ -2,6 +2,7 @@ import { ArrowRight, FileSpreadsheet, MapPin, Mail, Users } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { ChatWidget } from "@/components/chat-widget";
 import { Nav } from "@/components/nav";
+import { Logo } from "@/components/logo";
 import { Reveal } from "@/components/reveal";
 import { AppScreenshot } from "@/components/app-screenshot";
 import { HeroStage, Magnetic, Parallax, ScrollLine, ScrollProgress, SplitWords, Spotlight, Tilt } from "@/components/motion";
@@ -28,7 +29,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: `${SITE_URL}/`, name: "Worktime", alternateName: ["Work Time", "worktime.ee", "Worktime"], inLanguage: lang },
-      { "@type": "Organization", "@id": `${SITE_URL}/#org`, url: `${SITE_URL}/`, name: "Worktime", alternateName: ["Work Time", "Worktime"], logo: `${SITE_URL}/icon.png`, email: "joel@worktime.ee" },
+      { "@type": "Organization", "@id": `${SITE_URL}/#org`, url: `${SITE_URL}/`, name: "Worktime", alternateName: ["Work Time", "Worktime"], logo: `${SITE_URL}/icon.png`, image: `${SITE_URL}/logo.svg`, email: "joel@worktime.ee" },
       { "@type": "SoftwareApplication", name: "Worktime", applicationCategory: "BusinessApplication", operatingSystem: "Web", url: APP_URL, description: t.meta.description, publisher: { "@id": `${SITE_URL}/#org` } },
     ],
   };
@@ -144,7 +145,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
     <footer>
       <div className="container footer-inner">
-        <a className="brand" href="#top"><span>W</span>Worktime</a>
+        <a className="brand" href="#top" aria-label="worktime.ee"><Logo className="brand-logo"/></a>
         <div className="footer-links"><a href={APP_URL}>{t.openApp}</a><a href="mailto:joel@worktime.ee">joel@worktime.ee</a><a href="mailto:stepan@worktime.ee">stepan@worktime.ee</a><a href="#contact">{t.nav.links[3]}</a></div>
         <p>© {new Date().getFullYear()} Worktime</p>
       </div>
