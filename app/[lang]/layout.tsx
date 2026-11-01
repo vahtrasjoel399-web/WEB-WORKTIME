@@ -43,6 +43,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       locale: ogLocale,
       alternateLocale: locales.filter((l) => l !== lang).map((l) => dictionaries[l].ogLocale),
       siteName: "Worktime",
+      images: [{ url: `/og/${lang}.png`, width: 1200, height: 630, alt: meta.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [`/og/${lang}.png`],
     },
     icons: {
       icon: [
