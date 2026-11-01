@@ -12,7 +12,7 @@ const et = {
   ogLocale: "et_EE",
   meta: {
     title: "Worktime — tööaja arvestus ühes vaates",
-    description: "Worktime: tööaja, töötajate, objektide ja aruannete haldus ühes selges rakenduses.",
+    description: "Worktime on tööaja arvestuse rakendus ettevõttele: halda töötajaid ja objekte, vaata elavat kaarti ning ekspordi aruanded CSV- või Exceli failina.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaja arvestus", "tööaeg", "töötajate haldus", "tööaja tabel", "objektid", "aruanded"],
   },
   nav: {
@@ -111,7 +111,7 @@ const ru: Dictionary = {
   ogLocale: "ru_RU",
   meta: {
     title: "Worktime — учёт рабочего времени в одном окне",
-    description: "Worktime: учёт рабочего времени, сотрудников, объектов и отчётов в одном понятном приложении.",
+    description: "Worktime — учёт рабочего времени для компаний: сотрудники и объекты, живая карта смен и отчёты с экспортом в CSV и Excel в одном приложении.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "учёт рабочего времени", "табель рабочего времени", "управление сотрудниками", "объекты", "отчёты"],
   },
   nav: {
@@ -208,7 +208,7 @@ const en: Dictionary = {
   ogLocale: "en_GB",
   meta: {
     title: "Worktime — work time tracking in one view",
-    description: "Worktime: track work time, employees, worksites and reports in one clear app.",
+    description: "Worktime is work time tracking for businesses: manage employees and worksites, see shifts on a live map and export reports to CSV or Excel.",
     keywords: ["worktime", "work time", "work time tracking", "worktime.ee", "tööaeg", "time tracking", "working hours", "employee management", "timesheet", "worksites", "reports"],
   },
   nav: {
